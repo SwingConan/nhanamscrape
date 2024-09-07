@@ -38,7 +38,7 @@ class NhanamspiderSpider(scrapy.Spider):
         book_item['publishing_affiliate'] = response.xpath('//*[@id="tygh_main_container"]/div[3]/div/div/div/div/div[1]/div[2]/div[3]/div[2]/div[2]/div/a/span/span[2]/em/text()').get()
         book_item['barcode'] = response.css('div.ty-control-group span.ty-control-group__item::text').get()
         book_item['seller'] = response.xpath('//*[@id="tygh_main_container"]/div[3]/div/div/div/div/div[1]/div[2]/div[3]/div[2]/div[1]/div[2]/div[1]/a/text()').get()
-        book_item['url'] = response.url
+        book_item['in_stock'] = response.css('span[id^="qty_in_stock_"]::text').re_first(r'\d+')
         book_item['description'] = response.xpath('//*[@id="content_description"]/div/p[1]/text()').get()
 
         yield book_item
