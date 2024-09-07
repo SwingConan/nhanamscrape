@@ -19,6 +19,6 @@ class BookItem(scrapy.Item):
    publishing_affiliate = scrapy.Field()
    barcode = scrapy.Field()
    seller = scrapy.Field()
-   url = scrapy.Field()
+   in_stock = scrapy.Field()
    description = scrapy.Field()
     
