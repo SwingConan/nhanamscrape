@@ -34,11 +34,13 @@ class NhanamspiderSpider(scrapy.Spider):
         book_item['category'] = response.xpath('//div[@id="breadcrumbs_11"]/div/a[4]/bdi/text()').get()
         book_item['subcategory'] = response.xpath('//div[@id="breadcrumbs_11"]/div/a[5]/bdi/text()').get()
         book_item['size'] = response.xpath('//*[@id="content_features"]/div/div[2]/div[2]/text()').get()
+        # Dùng để lấy pages mà không bị lỗi dữ liệu
         nam = response.xpath('//*[@id="content_features"]/div/div[3]/div[1]/span/text()').get()
         if nam == 'Năm Xuất Bản':
             book_item['pages'] = response.xpath('//div[@id="content_features"]/div/div[4]/div[2]/text()').get()
         else:
             book_item['pages'] = response.xpath('//div[@id="content_features"]/div/div[3]/div[2]/text()').get()
+        
         book_item['publishing_affiliate'] = response.xpath('//*[@id="tygh_main_container"]/div[3]/div/div/div/div/div[1]/div[2]/div[3]/div[2]/div[2]/div/a/span/span[2]/em/text()').get()
         book_item['barcode'] = response.css('div.ty-control-group span.ty-control-group__item::text').get()
         book_item['seller'] = response.xpath('//*[@id="tygh_main_container"]/div[3]/div/div/div/div/div[1]/div[2]/div[3]/div[2]/div[1]/div[2]/div[1]/a/text()').get()
