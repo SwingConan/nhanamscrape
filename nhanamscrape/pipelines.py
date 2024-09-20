@@ -10,12 +10,15 @@ import json
 from itemadapter import ItemAdapter
 from scrapy.exceptions import DropItem
 import csv
-
+import os
 
 class MongoDBNhanamscrapePipeline:
     def __init__(self):
-        self.client = pymongo.MongoClient('mongodb://localhost:27017')
-        self.db = self.client['dbmycrawler'] #Database      
+        # Connection String
+        econnect = str(os.environ['Mongo_HOST'])
+        #self.client = pymongo.MongoClient('mongodb://mymongodb:27017')
+        self.client = pymongo.MongoClient('mongodb://'+econnect+':27017')
+        self.db = self.client['dbnhanam'] #Create Database      
         pass
     
     def process_item(self, item, spider):
