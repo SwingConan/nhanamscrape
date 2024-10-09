@@ -18,7 +18,7 @@ class MongoDBNhanamscrapePipeline:
         econnect = str(os.environ['Mongo_HOST'])
         # self.client = pymongo.MongoClient('mongodb://localhost:27017')
         self.client = pymongo.MongoClient('mongodb://'+econnect+':27017')
-        self.db = self.client['dbnhanam'] #Create Database      
+        self.db = self.client['dbnhanamcrawler'] #Create Database      
         pass
     
     def process_item(self, item, spider):
