@@ -22,7 +22,7 @@ class MongoDBNhanamscrapePipeline:
         pass
     
     def process_item(self, item, spider):
-        collection =self.db['tblnhanamscrape'] #Table
+        collection =self.db['tblnhanam'] #Table
         try:
             collection.insert_one(dict(item))
             return item
