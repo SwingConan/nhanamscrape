@@ -15,8 +15,8 @@ import os
 class MongoDBNhanamscrapePipeline:
     def __init__(self):
         # Connection String
-        econnect = str(os.environ['Mongo_HOST'])
-        # self.client = pymongo.MongoClient('mongodb://localhost:27017')
+        econnect = str(os.environ['Mongo_HOST']) #thiết lập biến môi trường cho triển khai Docker phần 3.
+        # self.client = pymongo.MongoClient('mongodb://localhost:27017') #Cho phần đưa dữ liệu lên MongoDB ở phần 2.
         self.client = pymongo.MongoClient('mongodb://'+econnect+':27017')
         self.db = self.client['dbnhanamcrawler'] #Create Database      
         pass

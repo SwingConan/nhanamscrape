@@ -3,7 +3,7 @@ from nhanamscrape.items import BookItem
 
 class NhanamspiderSpider(scrapy.Spider):
     name = "nhanamspider"
-    allowed_domains = ["nhasachphuongnam.com"]
+    allowed_domains = ["nhasachphuongnam.com"] #ten mien
     start_urls = ["https://nhasachphuongnam.com/sach-tieng-viet.html"]
 
     def parse(self, response):
