@@ -7,7 +7,10 @@ CREATE TABLE fact_books (
     affiliate_id INTEGER,
     seller_id INTEGER,
     pages INTEGER,
-    size VARCHAR(255)
+    size VARCHAR(255),
+    CONSTRAINT fk_category FOREIGN KEY (category_id) REFERENCES dim_categories(category_id),
+    CONSTRAINT fk_affiliate FOREIGN KEY (affiliate_id) REFERENCES dim_affiliates(affiliate_id),
+    CONSTRAINT fk_seller FOREIGN KEY (seller_id) REFERENCES dim_sellers(seller_id)
 );
 
 CREATE TABLE dim_categories (
